@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Npc : MonoBehaviour ,IWater
+public class NpcChain : MonoBehaviour, IWater
 {
+    public NpcChain Npc2;
+    public bool Switch;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,14 @@ public class Npc : MonoBehaviour ,IWater
 
     public void Splash()
     {
-        Debug.Log("Hit");
-    }
+        if (Switch)
+        {
+            Debug.Log("Hit");
+            Npc2.Switch = true;
+        }
+        else
+        {
 
+        }
+    }
 }

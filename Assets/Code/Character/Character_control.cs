@@ -24,7 +24,7 @@ public class Character_control : MonoBehaviour
     }
 
     public void water()
-    {
+    {        
         RaycastHit2D[] Enemy = Physics2D.RaycastAll(ray.transform.position, transform.right*gameObject.transform.localScale.x, distance);
         foreach (var item in Enemy)
         {
