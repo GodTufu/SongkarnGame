@@ -5,7 +5,9 @@ using UnityEngine;
 public class Character_control : MonoBehaviour
 {
     [SerializeField] private Transform ray;
-    public float distance = 2.5f;
+    public float distance = 0.4f;
+    public float distanceWater = 1.5f;
+    // public GameObject waterShoot;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,11 @@ public class Character_control : MonoBehaviour
             Debug.Log("Shoot");
             water();
         }
+        if (Input.GetButtonDown("Jump"))
+        {
+            
+        }
+
     }
 
     public void water()
@@ -43,8 +50,29 @@ public class Character_control : MonoBehaviour
         }
     }
 
+    public void SplashWater()
+    {
+        RaycastHit2D[] Enemy = Physics2D.RaycastAll(ray.transform.position, transform.right * gameObject.transform.localScale.x, distanceWater);
+        foreach (var item in Enemy)
+        {
+
+            if (item.collider.name != gameObject.name)
+            {
+                if (item.collider.GetComponent<ISplashWater>() != null)
+                {
+                    item.collider.GetComponent<ISplashWater>().SplashWater();
+                }
+            }
+            else
+            {
+
+            }
+        }
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(ray.transform.position, ray.transform.position + transform.right * gameObject.transform.localScale.x * distance);
+        Gizmos.DrawLine(ray.transform.position, ray.transform.position + transform.right * gameObject.transform.localScale.x * distanceWater);
     }
 }
