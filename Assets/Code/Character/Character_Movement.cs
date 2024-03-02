@@ -12,12 +12,20 @@ public class Character_Movement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-    //public Animator animator;
+    public Animator animator;
 
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
-        //animator.SetInteger("Speed", ((int)horizontal));
+        if (horizontal>0|| horizontal<0)
+        {
+            animator.SetBool("Walk", true);
+        }
+        else
+        {
+            animator.SetBool("Walk", false);
+        }        
+        
 
         //if (Input.GetButtonDown("Jump") && IsGrounded())
         //{

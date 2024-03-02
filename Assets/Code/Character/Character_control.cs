@@ -7,6 +7,7 @@ public class Character_control : MonoBehaviour
     [SerializeField] private Transform ray;
     public float distance = 0.4f;
     public float distanceWater = 1.5f;
+    public Animator animator;
     // public GameObject waterShoot;
 
     // Start is called before the first frame update
@@ -25,7 +26,8 @@ public class Character_control : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump"))
         {
-            
+            SplashWater();
+            animator.SetTrigger("Attack");
         }
 
     }
