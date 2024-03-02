@@ -19,16 +19,16 @@ public class Character_Movement : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         //animator.SetInteger("Speed", ((int)horizontal));
 
-        if (Input.GetButtonDown("Jump") && IsGrounded())
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-            //animator.SetBool("Jump", true);
-        }
+        //if (Input.GetButtonDown("Jump") && IsGrounded())
+        //{
+        //    rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+        //    //animator.SetBool("Jump", true);
+        //}
 
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        }
+        //if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+        //{
+        //    rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+        //}
 
         Flip();
         //if (IsGrounded())
