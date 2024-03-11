@@ -6,7 +6,7 @@ public class Actor : MonoBehaviour , ISplashWater
 {
     public Rigidbody2D rb;
     public float speed = 5;
-    public float Point = 1;
+    public int Point = 1;
     public Animator Animator;
     public bool Hit;
 
@@ -28,7 +28,7 @@ public class Actor : MonoBehaviour , ISplashWater
         if (!Hit)
         {
             Hit = true;
-            Debug.Log(Point);
+            Score.Add(Point);
             Animator.SetBool("Hit", true);            
         }
         
