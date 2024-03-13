@@ -164,7 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 3675276989404077808}
   speed: 1
-  Point: 1
+  Point: -1
   Animator: {fileID: 2448095576895575253}
   Hit: 0
 --- !u!1 &1458052354758502703

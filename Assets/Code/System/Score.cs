@@ -14,7 +14,7 @@ public class Score : MonoBehaviour
 
     private void Update()
     {
-        text.text = "" + value;
+        text.text = "Score : " + value;
     }
 
     static public int Show()
