@@ -7,7 +7,7 @@ public class Character_Movement : MonoBehaviour
     private float horizontal;
     private float speed = 8f;
     private bool isFacingRight = true;
-
+    static public bool con = true;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
@@ -15,16 +15,20 @@ public class Character_Movement : MonoBehaviour
 
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        if (horizontal>0|| horizontal<0)
+        if (con)
         {
-            animator.SetBool("Walk", true);
+            horizontal = Input.GetAxisRaw("Horizontal");
+            if (horizontal > 0 || horizontal < 0)
+            {
+                animator.SetBool("Walk", true);
+            }
+            else
+            {
+                animator.SetBool("Walk", false);
+            }
+            Flip();
         }
-        else
-        {
-            animator.SetBool("Walk", false);
-        }  
-        Flip();
+       
     }
 
     private void FixedUpdate()

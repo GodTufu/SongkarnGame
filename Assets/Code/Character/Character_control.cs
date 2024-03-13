@@ -8,6 +8,7 @@ public class Character_control : MonoBehaviour
     public float distance = 0.4f;
     public float distanceWater = 1.5f;
     public Animator animator;
+
     // public GameObject waterShoot;
 
     // Start is called before the first frame update
@@ -19,16 +20,19 @@ public class Character_control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Character_Movement.con)
         {
-            Debug.Log("Shoot");
-            water();
-        }
-        if (Input.GetButtonDown("Jump"))
-        {
-            SplashWater();
-            animator.SetTrigger("Attack");
-        }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.Log("Shoot");
+                water();
+            }
+            if (Input.GetButtonDown("Jump"))
+            {
+                SplashWater();
+                animator.SetTrigger("Attack");
+            }
+        }        
 
     }
 

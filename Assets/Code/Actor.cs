@@ -9,6 +9,7 @@ public class Actor : MonoBehaviour , ISplashWater
     public int Point = 1;
     public Animator Animator;
     public bool Hit;
+    public bool First = false;
 
 
     // Start is called before the first frame update
@@ -20,7 +21,17 @@ public class Actor : MonoBehaviour , ISplashWater
     // Update is called once per frame
     void Update()
     {
-        
+        if (!Character_Movement.con)
+        {
+            rb.velocity = Vector2.zero;
+            First = true;
+        }
+        if (First && Character_Movement.con)
+        {
+            rb.velocity = Vector2.left * speed;
+            First = false;
+
+        }
     }
 
     public void SplashWater()
