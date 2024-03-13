@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NpcChain : MonoBehaviour, IWater
 {
+    public GameObject Cscene;
     public NpcChain Npc2;
     public bool Switch;
     // Start is called before the first frame update
@@ -22,6 +23,9 @@ public class NpcChain : MonoBehaviour, IWater
     {
         if (Switch)
         {
+            Switch = false;
+            Cscene.SetActive(true);
+            Character_Movement.con = false;
             Debug.Log("Hit");
             Npc2.Switch = true;
         }
