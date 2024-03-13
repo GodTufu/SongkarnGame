@@ -28,6 +28,10 @@ public class Character_Movement : MonoBehaviour
             }
             Flip();
         }
+        else
+        {
+            horizontal = 0;
+        }
        
     }
 
