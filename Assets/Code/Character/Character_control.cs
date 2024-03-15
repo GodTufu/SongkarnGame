@@ -8,13 +8,15 @@ public class Character_control : MonoBehaviour
     public float distance = 0.4f;
     public float distanceWater = 1.5f;
     public Animator animator;
-
+    public AudioClip clip;
+    public AudioSource source;
+    public float volume = 0.1f;
     // public GameObject waterShoot;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        source.volume = volume;
     }
 
     // Update is called once per frame
@@ -29,6 +31,7 @@ public class Character_control : MonoBehaviour
             }
             if (Input.GetButtonDown("Jump"))
             {
+                source.PlayOneShot(clip);
                 SplashWater();
                 animator.SetTrigger("Attack");
             }

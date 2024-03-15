@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
 public class Actor : MonoBehaviour , ISplashWater
 {
@@ -10,12 +11,14 @@ public class Actor : MonoBehaviour , ISplashWater
     public Animator Animator;
     public bool Hit;
     public bool First = false;
-
-
+    public AudioClip clip;
+    public AudioSource source;
+    public float volume = 0.1f;
     // Start is called before the first frame update
     void Start()
     {
         rb.velocity = Vector2.left*speed;
+        source.volume = volume;
     }
 
     // Update is called once per frame
@@ -39,6 +42,7 @@ public class Actor : MonoBehaviour , ISplashWater
         if (!Hit)
         {
             Hit = true;
+            source.PlayOneShot(clip);
             Score.Add(Point);
             Animator.SetBool("Hit", true);            
         }

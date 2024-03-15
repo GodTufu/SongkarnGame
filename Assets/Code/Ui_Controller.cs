@@ -9,4 +9,12 @@ public class Ui_Controller : MonoBehaviour
     {
         SceneManager.LoadScene("MainLevel");
     }
+
+
+    public void Quitgame()
+    {
+        Application.Quit();
+        Debug.Log("Quit already");
+    }
+    
 }
