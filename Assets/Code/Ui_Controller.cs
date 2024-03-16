@@ -16,5 +16,10 @@ public class Ui_Controller : MonoBehaviour
         Application.Quit();
         Debug.Log("Quit already");
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
     
 }
