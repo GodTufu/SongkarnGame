@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 using static Unity.VisualScripting.Member;
 
@@ -9,6 +10,7 @@ public class Npc : MonoBehaviour ,IWater
     public AudioSource source;
     public float volume = 0.1f;
     public GameObject Cscene;
+    public int Point = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class Npc : MonoBehaviour ,IWater
     {
         Cscene.SetActive(true);
         source.PlayOneShot(clip);
+        Score.Add(Point);
         Character_Movement.con = false;
         Debug.Log("Hit");
     }
