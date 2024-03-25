@@ -8,6 +8,7 @@ public class Ui_Controller : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadScene("MainLevel");
+        Character_Movement.con = true;
     }
 
 
